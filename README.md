@@ -1,2 +1,2 @@
 # pso
-A PSO implementation aiming to optimize two thermal plants, described by its operating functions.
+A PSO implementation aiming to optimize a scenario of demand response, utilizing Real Time Pricing.
