@@ -1,7 +1,3 @@
-
-
-/* author: gandhi - gandhi.mtm [at] gmail [dot] com - Depok, Indonesia */
-
 // bean class to represent velocity
 
 public class Velocity {

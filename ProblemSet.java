@@ -1,5 +1,3 @@
-/* author: gandhi - gandhi.mtm [at] gmail [dot] com - Depok, Indonesia */
-
 // this is the problem to be solved
 // to find an x and a y that minimize the function below:
 // f(x, y) = (2.8125 - x + x * y^4)^2 + (2.25 - x + x * y^2)^2 + (1.5 - x + x*y)^2

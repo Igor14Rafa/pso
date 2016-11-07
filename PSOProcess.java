@@ -1,11 +1,3 @@
-
-
-/* author: gandhi - gandhi.mtm [at] gmail [dot] com - Depok, Indonesia */
-
-// this is the heart of the PSO program
-// the code is for 2-dimensional space problem
-// but you can easily modify it to solve higher dimensional space problem
-
 import java.util.Random;
 import java.util.Vector;
 

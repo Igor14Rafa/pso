@@ -1,6 +1,3 @@
-
-/* author: gandhi - gandhi.mtm [at] gmail [dot] com - Depok, Indonesia */
-
 // bean class to represent location
 
 public class Location {
