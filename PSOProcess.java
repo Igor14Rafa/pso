@@ -25,6 +25,7 @@ public class PSOProcess implements PSOConstants {
 		double err = 9999;
 
 		while(t < MAX_ITERATION && err > ProblemSet.ERR_TOLERANCE) {
+			
 			// step 1 - update pBest
 			for(int i=0; i<SWARM_SIZE; i++) {
 				if(fitnessValueList[i] < pBest[i]) {
