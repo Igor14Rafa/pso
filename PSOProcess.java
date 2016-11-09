@@ -86,7 +86,7 @@ public class PSOProcess implements PSOConstants {
 
 	public void initializeSwarm() {
 		Particle p;
-		for(int i=0; i<SWARM_SIZE; i++) {
+		for(int i = 0; i < SWARM_SIZE; i++) {
 			p = new Particle();
 
 			// randomize location inside a space defined in Problem Set

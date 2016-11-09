@@ -17,16 +17,36 @@ public class ProblemSet {
 
 	public static final double ERR_TOLERANCE = 1E-20; // the smaller the tolerance, the more accurate the result,
 	                                                  // but the number of iteration is increased
-
 	public static double evaluate(Location location) {
+
 		double result = 0;
-		double x = location.getLoc()[0]; // the "x" part of the location
-		double y = location.getLoc()[1]; // the "y" part of the location
+		double price_value[] = new double[24];
+		double utility_value[] = new double[24];
+		
+		//high and low values for the prices
+		double loc_high[] = {0.008, 0.007, 0.008, 0.007, 0.006, 0.010, 0.006, 0.007, 0.008, 0.007, 0.011, 
+				0.013, 0.009, 0.012, 0.013, 0.006, 0.009, 0.014, 0.008, 0.015, 0.015, 0.014, 0.021, 0.015 };
+		
+		double loc_low[] = {0.008, 0.011, 0.011, 0.008, 0.011, 0.011, 0.006, 0.009, 0.012, 0.008, 0.014, 
+				0.011, 0.008, 0.013, 0.010, 0.007, 0.012, 0.010, 0.015, 0.018, 0.015, 0.015, 0.019, 0.015 };
+		//energy prices in maximum peak consumption day
+		double energy_prices_max_peak[] = {0.114, 0.104, 0.093, 0.093, 0.092, 0.093, 0.094, 0.093, 0.100, 0.113, 0.138, 0.138, 0.138, 0.138, 0.138, 0.116, 0.111, 0.138, 0.138, 0.146, 0.189, 0.222, 0.224, 0.207 };
+		
+		//energy prices in minimum peak consumption day
+		double energy_prices_min_peak[] = {0.140 ,0.131 ,0.125 ,0.125 ,0.122 ,0.117 ,0.117 ,0.119 ,0.122 ,0.131 ,0.136 ,0.137 ,0.129 ,0.136 ,0.133 ,0.124 ,0.125 ,0.137 ,0.197 ,0.209 ,0.215 ,0.215 ,0.205 ,0.189};
 
-		result = Math.pow(2.8125 - x + x * Math.pow(y, 4), 2) +
-				Math.pow(2.25 - x + x * Math.pow(y, 2), 2) +
-				Math.pow(1.5 - x + x * y, 2);
-
+//		double x = location.getLoc()[0]; // the "x" part of the location
+//		double y = location.getLoc()[1]; // the "y" part of the location
+//
+//		result = Math.pow(2.8125 - x + x * Math.pow(y, 4), 2) +
+//				Math.pow(2.25 - x + x * Math.pow(y, 2), 2) +
+//				Math.pow(1.5 - x + x * y, 2);
+		
+		
+		for(int i = 0; i < location.getLoc().length; i++){
+			
+		}
+		
 		return result;
 	}
 }
