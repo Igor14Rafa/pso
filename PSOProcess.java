@@ -15,7 +15,7 @@ public class PSOProcess implements PSOConstants {
 		initializeSwarm();
 		updateFitnessList();
 
-		for(int i=0; i<SWARM_SIZE; i++) {
+		for(int i = 0; i < SWARM_SIZE; i++) {
 			pBest[i] = fitnessValueList[i];
 			pBestLocation.add(swarm.get(i).getLocation());
 		}
@@ -27,7 +27,7 @@ public class PSOProcess implements PSOConstants {
 		while(t < MAX_ITERATION && err > ProblemSet.ERR_TOLERANCE) {
 			
 			// step 1 - update pBest
-			for(int i=0; i<SWARM_SIZE; i++) {
+			for(int i = 0; i < SWARM_SIZE; i++) {
 				if(fitnessValueList[i] < pBest[i]) {
 					pBest[i] = fitnessValueList[i];
 					pBestLocation.set(i, swarm.get(i).getLocation());
@@ -50,30 +50,28 @@ public class PSOProcess implements PSOConstants {
 				Particle p = swarm.get(i);
 
 				// step 3 - update velocity
+				for(int j = 0; j < PSOConstants.PROBLEM_DIMENSION; j++){
 				double[] newVel = new double[PROBLEM_DIMENSION];
-				newVel[0] = (w * p.getVelocity().getPos()[0]) +
-							(r1 * C1) * (pBestLocation.get(i).getLoc()[0] - p.getLocation().getLoc()[0]) +
-							(r2 * C2) * (gBestLocation.getLoc()[0] - p.getLocation().getLoc()[0]);
-				newVel[1] = (w * p.getVelocity().getPos()[1]) +
-							(r1 * C1) * (pBestLocation.get(i).getLoc()[1] - p.getLocation().getLoc()[1]) +
-							(r2 * C2) * (gBestLocation.getLoc()[1] - p.getLocation().getLoc()[1]);
+				newVel[j] = (w * p.getVelocity().getPos()[j]) +
+							(r1 * C1) * (pBestLocation.get(i).getLoc()[j] - p.getLocation().getLoc()[j]) +
+							(r2 * C2) * (gBestLocation.getLoc()[j] - p.getLocation().getLoc()[j]);
 				Velocity vel = new Velocity(newVel);
 				p.setVelocity(vel);
-
+				
 				// step 4 - update location
 				double[] newLoc = new double[PROBLEM_DIMENSION];
-				newLoc[0] = p.getLocation().getLoc()[0] + newVel[0];
-				newLoc[1] = p.getLocation().getLoc()[1] + newVel[1];
+				newLoc[j] = p.getLocation().getLoc()[j] + newVel[j];
 				Location loc = new Location(newLoc);
 				p.setLocation(loc);
+				}
 			}
 
 			err = ProblemSet.evaluate(gBestLocation) - 0; // minimizing the functions means it's getting closer to 0
 
 
 			System.out.println("ITERATION " + t + ": ");
-			System.out.println("     Best X: " + gBestLocation.getLoc()[0]);
-			System.out.println("     Best Y: " + gBestLocation.getLoc()[1]);
+			System.out.println("     Best Particle: " + gBestLocation.getLoc()[0]);
+//			System.out.println("     Best Y: " + gBestLocation.getLoc()[1]);
 			System.out.println("     Value: " + ProblemSet.evaluate(gBestLocation));
 
 			t++;
@@ -81,7 +79,8 @@ public class PSOProcess implements PSOConstants {
 		}
 
 		System.out.println("\nSolution found at iteration " + (t - 1) + ", the solutions is:");
-		System.out.println("     Best X: " + gBestLocation.getLoc());
+		System.out.println("     Best X: " + gBestLocation.getSum());
+		System.out.printf("Consumption Decrement: %.2f percent", gBestLocation.getSum());
 //		System.out.println("     Best Y: " + gBestLocation.getLoc()[1]);
 	}
 
@@ -93,12 +92,12 @@ public class PSOProcess implements PSOConstants {
 			for(int j = 0; j < PSOConstants.PROBLEM_DIMENSION; j++){
 			// randomize location inside a space defined in Problem Set
 			double[] loc = new double[PROBLEM_DIMENSION];
-			loc[i] = ProblemSet.PRICES_LOW[i] + generator.nextDouble() * (ProblemSet.PRICES_HIGH[i] - ProblemSet.PRICES_LOW[i]);
+			loc[j] = ProblemSet.PRICES_LOW[j] + generator.nextDouble() * (ProblemSet.PRICES_HIGH[j] - ProblemSet.PRICES_LOW[j]);
 			Location location = new Location(loc);
 
 			// randomize velocity in the range defined in Problem Set
 			double[] vel = new double[PROBLEM_DIMENSION];
-			vel[i] = ProblemSet.VEL_LOW + generator.nextDouble() * (ProblemSet.VEL_HIGH - ProblemSet.VEL_LOW);
+			vel[j] = ProblemSet.VEL_LOW + generator.nextDouble() * (ProblemSet.VEL_HIGH - ProblemSet.VEL_LOW);
 			Velocity velocity = new Velocity(vel);
 
 			p.setLocation(location);

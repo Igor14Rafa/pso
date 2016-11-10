@@ -27,7 +27,7 @@ public class ProblemSet {
 	public static double evaluate(Location location) {
 
 		double result = 0;
-		double x[] = new double[PSOConstants.PROBLEM_DIMENSION];
+//		double x[] = new double[PSOConstants.PROBLEM_DIMENSION];
 		
 		//high and low values for the prices
 		double loc_high[] = {0.008, 0.007, 0.008, 0.007, 0.006, 0.010, 0.006, 0.007, 0.008, 0.007, 0.011, 
@@ -46,11 +46,11 @@ public class ProblemSet {
 		
 		for(int i = 0; i < PSOConstants.PROBLEM_DIMENSION; i++){
 			Random num = new Random();
-			x[i] = loc_low[i] - num.nextDouble()*loc_high[i];
+			location.getLoc()[i] = loc_low[i] - num.nextDouble()*loc_high[i];
 		}
 		
 		for(int i = 0; i < PSOConstants.PROBLEM_DIMENSION; i++){
-			result = x[i] - PSOConstants.UTILITY_VALUE;
+			result = location.getLoc()[i] - PSOConstants.UTILITY_VALUE;
 		}
 		
 		return result;
