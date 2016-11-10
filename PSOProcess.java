@@ -69,8 +69,8 @@ public class PSOProcess implements PSOConstants {
 			err = ProblemSet.evaluate(gBestLocation) - 0; // minimizing the functions means it's getting closer to 0
 
 
-			System.out.println("ITERATION " + t + ": ");
-			System.out.println("     Best Particle: " + gBestLocation.getLoc()[0]);
+//			System.out.println("ITERATION " + t + ": ");
+//			System.out.println("     Best Particle: " + gBestLocation.getLoc()[0]);
 //			System.out.println("     Best Y: " + gBestLocation.getLoc()[1]);
 			System.out.println("     Value: " + ProblemSet.evaluate(gBestLocation));
 
@@ -78,7 +78,7 @@ public class PSOProcess implements PSOConstants {
 			updateFitnessList();
 		}
 
-		System.out.println("\nSolution found at iteration " + (t - 1) + ", the solutions is:");
+//		System.out.println("\nSolution found at iteration " + (t - 1) + ", the solutions is:");
 		System.out.println("     Best X: " + gBestLocation.getSum());
 		System.out.printf("Consumption Decrement: %.2f percent", gBestLocation.getSum());
 //		System.out.println("     Best Y: " + gBestLocation.getLoc()[1]);
