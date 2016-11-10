@@ -9,4 +9,5 @@ public interface PSOConstants {
 	double C2 = 2.0;
 	double W_UPPERBOUND = 1.0;
 	double W_LOWERBOUND = 0.0;
+	double UTILITY_VALUE = 0.13;
 }

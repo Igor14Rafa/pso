@@ -81,30 +81,30 @@ public class PSOProcess implements PSOConstants {
 		}
 
 		System.out.println("\nSolution found at iteration " + (t - 1) + ", the solutions is:");
-		System.out.println("     Best X: " + gBestLocation.getLoc()[0]);
-		System.out.println("     Best Y: " + gBestLocation.getLoc()[1]);
+		System.out.println("     Best X: " + gBestLocation.getLoc());
+//		System.out.println("     Best Y: " + gBestLocation.getLoc()[1]);
 	}
 
 	public void initializeSwarm() {
 		Particle p;
 		for(int i = 0; i < SWARM_SIZE; i++) {
 			p = new Particle();
-
+			
+			for(int j = 0; j < PSOConstants.PROBLEM_DIMENSION; j++){
 			// randomize location inside a space defined in Problem Set
 			double[] loc = new double[PROBLEM_DIMENSION];
-			loc[0] = ProblemSet.LOC_X_LOW + generator.nextDouble() * (ProblemSet.LOC_X_HIGH - ProblemSet.LOC_X_LOW);
-			loc[1] = ProblemSet.LOC_Y_LOW + generator.nextDouble() * (ProblemSet.LOC_Y_HIGH - ProblemSet.LOC_Y_LOW);
+			loc[i] = ProblemSet.PRICES_LOW[i] + generator.nextDouble() * (ProblemSet.PRICES_HIGH[i] - ProblemSet.PRICES_LOW[i]);
 			Location location = new Location(loc);
 
 			// randomize velocity in the range defined in Problem Set
 			double[] vel = new double[PROBLEM_DIMENSION];
-			vel[0] = ProblemSet.VEL_LOW + generator.nextDouble() * (ProblemSet.VEL_HIGH - ProblemSet.VEL_LOW);
-			vel[1] = ProblemSet.VEL_LOW + generator.nextDouble() * (ProblemSet.VEL_HIGH - ProblemSet.VEL_LOW);
+			vel[i] = ProblemSet.VEL_LOW + generator.nextDouble() * (ProblemSet.VEL_HIGH - ProblemSet.VEL_LOW);
 			Velocity velocity = new Velocity(vel);
 
 			p.setLocation(location);
 			p.setVelocity(velocity);
 			swarm.add(p);
+			}
 		}
 	}
 
