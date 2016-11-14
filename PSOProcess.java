@@ -78,8 +78,13 @@ public class PSOProcess implements PSOConstants {
 			updateFitnessList();
 		}
 
+<<<<<<< HEAD
+		System.out.println("\nSolution found at iteration " + (t - 1) + ", the solutions is:");
+		System.out.println("     Best X: " + gBestLocation.getLoc());
+=======
 //		System.out.println("\nSolution found at iteration " + (t - 1) + ", the solutions is:");
 		System.out.println("     Best X: " + gBestLocation.getSum());
+>>>>>>> origin/master
 		System.out.printf("Consumption Decrement: %.2f percent", gBestLocation.getSum());
 //		System.out.println("     Best Y: " + gBestLocation.getLoc()[1]);
 	}
