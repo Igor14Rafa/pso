@@ -18,15 +18,16 @@ public class PSOUtility {
 	}
 	
 	public static double[] getPricesHigh(){
-		double prices_high[] = {};
+		double[] prices_high = new double[PSOConstants.PROBLEM_DIMENSION];
 		Scanner scanner;
 		try {
-			scanner = new Scanner(new FileReader("prices_high.txt")).useDelimiter("\\n");
+			scanner = new Scanner(new FileReader("C:\\Users\\computacao-CCN\\Documents\\GitHub\\pso\\prices_high.txt")).useDelimiter("\\n");
+			int i = 0;
 			while(scanner.hasNext()){
-				int i = 0;
-				prices_high[i] = scanner.nextDouble();
+				prices_high[i] = Double.parseDouble(scanner.next());
 				i++;
 			}
+			scanner.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -35,15 +36,16 @@ public class PSOUtility {
 	}
 	
 	public static double[] getPricesLow(){
-		double prices_low[] = {};
+		double[] prices_low = new double[PSOConstants.PROBLEM_DIMENSION];
 		Scanner scanner;
 		try {
-			scanner = new Scanner(new FileReader("prices_low.txt")).useDelimiter("\\n");
+			scanner = new Scanner(new FileReader("C:\\Users\\computacao-CCN\\Documents\\GitHub\\pso\\prices_low.txt")).useDelimiter("\\n");
+			int i = 0;
 			while(scanner.hasNext()){
-				int i = 0;
-				prices_low[i] = scanner.nextDouble();
+				prices_low[i] = Double.parseDouble(scanner.next());
 				i++;
 			}
+			scanner.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -52,39 +54,39 @@ public class PSOUtility {
 	}
 	
 	public static double[] getLocationHigh(){
-		double location_high[] = {};
+		double[] location_high = new double[PSOConstants.PROBLEM_DIMENSION];
 		Scanner scanner;
 		try {
-			scanner = new Scanner(new FileReader("location_high.txt")).useDelimiter("\\n");
+			scanner = new Scanner(new FileReader("C:\\Users\\computacao-CCN\\Documents\\GitHub\\pso\\location_high.txt")).useDelimiter("\\n");
+			int i = 0;
 			while(scanner.hasNext()){
-				int i = 0;
-				location_high[i] = scanner.nextDouble();
+				location_high[i] = Double.parseDouble(scanner.next());
 				i++;
 			}
+			scanner.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		
 		return location_high;
 	}
 	
 	public static double[] getLocationLow(){
-		double location_low[] = {};
+		double[] location_low = new double[PSOConstants.PROBLEM_DIMENSION];
 		Scanner scanner;
 		try {
-			scanner = new Scanner(new FileReader("location_low.txt")).useDelimiter("\\n");
+			scanner = new Scanner(new FileReader("C:\\Users\\computacao-CCN\\Documents\\GitHub\\pso\\location_low.txt")).useDelimiter("\\n");
+			int i = 0;
 			while(scanner.hasNext()){
-				int i = 0;
-				location_low[i] = scanner.nextDouble();
+				location_low[i] = Double.parseDouble(scanner.next());
 				i++;
 			}
+			scanner.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
 		return location_low;
 	}
-
-
-
 }

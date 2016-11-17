@@ -9,13 +9,16 @@
 import java.util.Random;
 public class ProblemSet {
 	
+	static double[] prices_high = PSOUtility.getPricesHigh();
+	static double[] prices_low = PSOUtility.getPricesLow();
+	
 	public static final double VEL_LOW = -1;
 	
 	public static final double VEL_HIGH = 1;
 	
-	public static final double PRICES_HIGH[] = PSOUtility.getPricesHigh();
+	public static final double[] PRICES_HIGH = prices_high;
 	
-	public static final double PRICES_LOW[] = PSOUtility.getPricesLow(); 
+	public static final double[] PRICES_LOW = prices_low; 
 
 	public static final double ERR_TOLERANCE = 1E-20; // the smaller the tolerance, the more accurate the result,
 	                                                  // but the number of iteration is increased
